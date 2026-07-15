@@ -1,0 +1,33 @@
+# Environment secrets
+.env
+.env.*
+
+# Java / Maven
+target/
+*.jar
+
+# Runtime databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# Runtime ingest data
+ingest/raw/*
+ingest/processed/*
+ingest/state/*
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker runtime files
+docker-compose.override.yml
