@@ -31,3 +31,6 @@ Thumbs.db
 
 # Docker runtime files
 docker-compose.override.yml
+
+# Maven generated
+dependency-reduced-pom.xml

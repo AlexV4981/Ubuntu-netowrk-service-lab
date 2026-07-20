@@ -290,8 +290,29 @@ def health():
 
 @app.get("/status")
 def status():
+    print("STATUS HEADERS:", dict(request.headers), flush=True)
+
+    user_id = request.headers.get(
+        "X-User-ID",
+        "Unknown"
+    )
+
+    user = request.headers.get(
+        "X-User",
+        "Unknown"
+    )
+
 
     if not check_status_limit():
+
+        log_command(
+            user_id,
+            user,
+            "status",
+            "rate_limited",
+            "unknown",
+            "unknown"
+        )
 
         return "Status limit reached. Try again later."
 
@@ -302,7 +323,20 @@ def status():
     state = get_server_state(container)
 
 
+
+    log_command(
+        user_id,
+        user,
+        "status",
+        "success",
+        state,
+        state
+    )
+
+
     return f"server is {state}"
+
+
 
 
 
